@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LRT TRAIN 2 TICKET FARE</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    
+    body { 
+      background-color: #DEF4C6; 
+      font-family: 'Century Gothic', sans-serif; 
+    }
+
+    .fare-label, .title-header { 
+      font-weight: bold; 
+      font-size: 48px; 
+      margin-bottom: 30px; 
+    }
+
+    .fare-section { 
+      margin-top: 120px; 
+    }
+
+    .station-box { 
+      background-color: #73E2A7; 
+      padding: 20px; 
+      border: 2px solid #000; 
+      border-radius: 8px; 
+      font-size: 22px; 
+      margin-bottom: 20px; 
+    }
+
+    .line-separator { 
+      border-top: 3px solid black; 
+      margin: 30px 0; 
+    }
+
+    .train-map { 
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      border-radius: 10px; 
+    }
+
+    .footer-banner { 
+      background-color: #36454F; 
+      color: white; 
+      text-align: center; 
+      padding: 10px 0; 
+      font-size: 18px; 
+      font-weight: bold; 
+      position: fixed; 
+      bottom: 0; 
+      width: 100%; 
+      border: 2px solid #000; 
+      border-radius: 8px; 
+    }
+
+    .logo{
+      size: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-info navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img src="LOGO.png" alt="logo" style="width: 50px;"></a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ml-3">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="page2.html">Train Schedule</a></li>
+        <li class="nav-item"><a class="nav-link" href="page3.html">Help</a></li>
+      </ul>
+      </div>
+  <form class="d-flex ms-auto">
+      <input class="form-control me-2" type="text" placeholder="Search...">
+      <button class="btn btn-success" type="button">Search</button>
+  </form>
+  </div>
+</nav>
+
+<div class="container text-center fare-section">
+  <h1 class="title-header">LRT Line 2 Fare Guide</h1>
+  <div class="line-separator"></div>
+  <div class="row">
+    <div class="col-md-4">
+      <img src="https://www.deiville.com/wp-content/uploads/2023/03/map-of-lrt-line-1-2-and-mrt-3-stations.jpg" alt="Train Map" class="img-fluid train-map">
+    </div>
+
+
+    <div class="col-md-4">
+      <div class="station-box">LEAVING FROM:
+        <select class="form-select" id="OgLocation">
+          <option value="0">Choose</option>
+          <option value="1">Santolan</option>
+          <option value="20">Katipunan</option>
+          <option value="20">Anonas</option>
+          <option value="20">Araneta Center-Cubao</option>
+          <option value="20">Betty Go-Belmonte</option>
+          <option value="20">Gilmore</option>
+          <option value="20">J. Ruiz</option>
+          <option value="20">V. Mapa</option>
+          <option value="20">Pureza</option>
+          <option value="20">Legarda</option>
+          <option value="20">Recto</option>
+        </select>
+    </div>
+
+
+      <div class="station-box">GOING TO:
+        <select class="form-select" id="DestLocation">
+          <option value="0">Choose</option>
+          <option value="1">Santolan</option>
+          <option value="16">Katipunan</option>
+          <option value="20">Anonas</option>
+          <option value="20">Araneta Center-Cubao</option>
+          <option value="20">Betty Go-Belmonte</option>
+          <option value="20">Gilmore</option>
+          <option value="20">J. Ruiz</option>
+          <option value="20">V. Mapa</option>
+          <option value="30">Pureza</option>
+          <option value="20">Legarda</option>
+          <option value="20">Recto</option>
+        </select>
+      </div>
+
+      <div class="station-box"> Price Type
+        <select class="form-select" id="priceType">
+          <option value="0">Choose</option>
+          <option value="0">Regular</option>
+          <option value="0.2">PWD</option>
+          <option value="0.2">Student</option>
+          <option value="0.2">Senior Citizen</option>
+        </select>
+      </div>
+
+    <div class="fare-btns">
+      <button type="button" class="btn btn-info" onclick="calculatePrice()">Calculate Price</button>
+    </div>
+  </div>
+
+
+  <div class="col-md-4">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/LRT-2_Recto_2024-10-18.jpg/1200px-LRT-2_Recto_2024-10-18.jpg" alt="Train Picture" class="img-fluid train-map">
+</div>
+</div>
+</div>
+
+<div class="footer-banner">Made by: Ligas & Mendez</div>
+
+<script>
+
+  function calculatePrice() {
+    var OgLocation = document.getElementById("OgLocation").value;
+    var DestLocation = document.getElementById("DestLocation").value;
+    var priceType = document.getElementById("priceType").value;
+
+    var finalPrice = Number(OgLocation) * Number(priceType);
+    window.alert("The final ticket price is: " + finalPrice.toFixed(2));
+}
+
+
+</script>
+
+</body>
+</html>
